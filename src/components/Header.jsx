@@ -5,7 +5,7 @@ export default function Header() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/movies/">
             MOVIES
           </Link>
           <button
@@ -25,7 +25,7 @@ export default function Header() {
                 <NavLink
                   className="nav-link active"
                   aria-current="page"
-                  href="#"
+                  to="/movies/"
                 >
                   home Page
                 </NavLink>

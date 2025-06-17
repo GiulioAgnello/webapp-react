@@ -1,5 +1,5 @@
-// import { useParams } from "react-router";
-
+import { useParams } from "react-router";
+import ReviewList from "../components/ReviewList";
 // const movies = [
 //   {
 //     id: 1,
@@ -14,18 +14,27 @@
 // ];
 
 export default function movieDetail() {
-  //   const { id = movies.id } = useParams();
+  const { id } = useParams();
   return (
     <>
-      <div className="container my-2">
-        <h1>movie</h1>
+      <section>
+        <div className="container my-2">
+          <p>immagine</p>
+          <h1>Title {id}</h1>
+          <p>genre</p>
+          <p>director</p>
+          <p>descrizione</p>
+        </div>
+      </section>
 
-        <h2>review</h2>
-        <p>descrizione</p>
+      <ReviewList />
 
-        <h2>la tua recenzione</h2>
-        <p>form per la recensione</p>
-      </div>
+      <section>
+        <div className="container my-2">
+          <h2>la tua recenzione</h2>
+          <p>form per la recensione</p>
+        </div>
+      </section>
     </>
   );
 }
