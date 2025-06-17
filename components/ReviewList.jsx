@@ -25,7 +25,7 @@ export default function ReviewList() {
   return (
     <section>
       <div className="container my-2">
-        <h2>review</h2>
+        <h2 className="text-center">REVIEWS</h2>
         {reviews.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}

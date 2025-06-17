@@ -18,7 +18,7 @@ export default function movieDetail() {
   return (
     <>
       <section>
-        <div className="container my-2">
+        <div className="container  my-4">
           <p>immagine</p>
           <h1>Title {id}</h1>
           <p>genre</p>
@@ -30,7 +30,7 @@ export default function movieDetail() {
       <ReviewList />
 
       <section>
-        <div className="container my-2">
+        <div className="container my-4">
           <h2>la tua recenzione</h2>
           <p>form per la recensione</p>
         </div>
