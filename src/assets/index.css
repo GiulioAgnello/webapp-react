@@ -1,0 +1,17 @@
+.avatar {
+  background-color: violet;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.card-username {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
