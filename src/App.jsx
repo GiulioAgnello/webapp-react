@@ -1,14 +1,20 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
+import { BrowserRouter, Routes, Route } from "react-router";
+import DefaultLayout from "../Layout/defaultLayout";
+import HomePage from "../page/homePage";
 
 export default function App() {
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route path="/">
+              <Route index element={<HomePage />}></Route>
+              {/* <Route path=":id" element={<movieDetail />}></Route> */}
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
