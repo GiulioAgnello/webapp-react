@@ -31,3 +31,8 @@
   color: rgb(47, 47, 47);
   background-color: rgba(164, 155, 107, 0.4);
 }
+
+.reviewCard {
+  border: 5px, solid, rgb(164, 155, 107, 0.4);
+  padding: 10px;
+}
