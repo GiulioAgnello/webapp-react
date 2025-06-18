@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import DefaultLayout from "../Layout/defaultLayout";
-import HomePage from "../page/homePage";
-import MovieDetail from "../page/movieDetail";
+import DefaultLayout from "./layout/DefaultLayout";
+import HomePage from "./page/HomePage";
+import MovieDetail from "./page/MovieDetail";
 
 export default function App() {
   return (

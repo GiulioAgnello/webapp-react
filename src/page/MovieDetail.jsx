@@ -7,7 +7,7 @@ import axios from "axios";
 const urlApi = import.meta.env.VITE_API_URL;
 const imagePath = import.meta.env.VITE_PATH_IMG;
 
-export default function movieDetail() {
+export default function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
 
