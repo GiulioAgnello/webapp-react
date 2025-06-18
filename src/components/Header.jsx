@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/movies/">
-            MOVIES
+            CINEBLOG BOOLEAN
           </Link>
           <button
             className="navbar-toggler"
@@ -27,7 +27,7 @@ export default function Header() {
                   aria-current="page"
                   to="/movies/"
                 >
-                  home Page
+                  Lista dei film
                 </NavLink>
               </li>
             </ul>
