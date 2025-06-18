@@ -1,50 +1,22 @@
+import axios from "axios";
 import Card from "./card";
+import { useState, useEffect } from "react";
 
-// example for movie array
-const movies = [
-  {
-    id: 1,
-    title: "Inception",
-    director: "Christopher Nolan",
-    genre: "Science Fiction",
-    release_year: 2010,
-    abstract:
-      "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-    image: "inception.jpg",
-  },
-  {
-    id: 2,
-    title: "Inception",
-    director: "Christopher Nolan",
-    genre: "Science Fiction",
-    release_year: 2010,
-    abstract:
-      "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-    image: "inception.jpg",
-  },
-  {
-    id: 3,
-    title: "Inception",
-    director: "Christopher Nolan",
-    genre: "Science Fiction",
-    release_year: 2010,
-    abstract:
-      "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-    image: "inception.jpg",
-  },
-  {
-    id: 4,
-    title: "Inception",
-    director: "Christopher Nolan",
-    genre: "Science Fiction",
-    release_year: 2010,
-    abstract:
-      "A skilled thief is given a chance at redemption if he can successfully perform inception.",
-    image: "inception.jpg",
-  },
-];
+const urlApi = import.meta.env.VITE_API_URL;
 
 export default function MovieList() {
+  // settaggio e fetch della api
+  const [movies, setMovie] = useState([]);
+
+  function fetchmovie() {
+    axios.get(urlApi).then((res) => {
+      setMovie(res.data);
+      console.log(res.data);
+    });
+  }
+
+  useEffect(fetchmovie, []);
+
   return (
     <>
       <div className="row g-3">

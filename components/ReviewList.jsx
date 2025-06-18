@@ -1,27 +1,24 @@
 import ReviewCard from "./ReviewCard";
 
-const reviews = [
-  {
-    id: 1,
-    vote: 5,
-    name: "Andrea",
-    text: "A mind-bending masterpiece.",
-  },
-  {
-    id: 2,
-    vote: 4,
-    name: "franca",
-    text: "Great visuals and a compelling story.",
-  },
-  {
-    id: 3,
-    vote: 3,
-    name: "renato",
-    text: "Confusing at times, but worth watching.",
-  },
-];
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
+// url
+const urlApi = import.meta.env.VITE_API_URL;
 
 export default function ReviewList() {
+  const { id } = useParams();
+  const [reviews, setreview] = useState([]);
+
+  function fetchmovie() {
+    axios.get(urlApi + id).then((res) => {
+      setreview(res.data.reviews);
+      console.log(res.data.reviews);
+    });
+  }
+
+  useEffect(fetchmovie, []);
+
   return (
     <section>
       <div className="container my-2">
