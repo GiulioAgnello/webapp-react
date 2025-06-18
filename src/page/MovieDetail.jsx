@@ -25,15 +25,28 @@ export default function MovieDetail() {
     <>
       <section>
         <div className="container  my-4">
-          <img
-            src={`${imagePath}${image}`}
-            className="card-img-top"
-            alt={movie.title}
-          />
-          <h1>{title}</h1>
-          <p>{genre}</p>
-          <p>{director}r</p>
-          <p>{abstract}</p>
+          <div className="row">
+            <div className="col-3">
+              <img
+                src={`${imagePath}${image}`}
+                className="Showimage"
+                alt={movie.title}
+              />
+            </div>
+            <div className="col-9 ">
+              <div className="description">
+                <h1 className="titleShow text-uppercase text-center">
+                  {title}
+                </h1>
+                <small>{genre}</small>
+                <br />
+                <small>{director}</small>
+                <br />
+                <br />
+                <p>{abstract}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
