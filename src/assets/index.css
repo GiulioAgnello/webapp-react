@@ -36,3 +36,9 @@
   border: 5px, solid, rgb(164, 155, 107, 0.4);
   padding: 10px;
 }
+
+.imageList {
+  width: 100%;
+}
+
+.card
