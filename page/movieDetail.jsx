@@ -5,6 +5,7 @@ import axios from "axios";
 
 // url
 const urlApi = import.meta.env.VITE_API_URL;
+const imagePath = import.meta.env.VITE_PATH_IMG;
 
 export default function movieDetail() {
   const { id } = useParams();
@@ -24,7 +25,11 @@ export default function movieDetail() {
     <>
       <section>
         <div className="container  my-4">
-          <p>{image}</p>
+          <img
+            src={`${imagePath}${image}`}
+            className="card-img-top"
+            alt={movie.title}
+          />
           <h1>{title}</h1>
           <p>{genre}</p>
           <p>{director}r</p>

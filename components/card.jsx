@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 
+const imagePath = import.meta.env.VITE_PATH_IMG;
+
 export default function Card({ movie }) {
   const { id, image, title, director, genre, release_year, abstract } = movie;
 
@@ -7,7 +9,11 @@ export default function Card({ movie }) {
     <>
       <div className="col-4">
         <div className="card ">
-          <img src={image} className="card-img-top" alt={movie.title} />
+          <img
+            src={`${imagePath}${image}`}
+            className="card-img-top"
+            alt={movie.title}
+          />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p>
