@@ -58,7 +58,7 @@ export default function MovieDetail() {
           <div className="row">
             <div className="col">
               <h2>Add a Revirew..</h2>
-              <ReviewForm />
+              <ReviewForm movie_id={id} refreshMovie={fetchmovie} />
             </div>
           </div>
         </div>

@@ -1,12 +1,23 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const dataDefault = { name: "", vote: 0, text: "", policy: false };
 
-export default function reviewForm() {
+export default function reviewForm({ movie_id, refreshMovie }) {
+  const urlApi = import.meta.env.VITE_API_URL + movie_id + "/reviews";
+
   const [formData, setFormData] = useState(dataDefault);
+
+  const fetchReviewAdd = () => {
+    axios.post(urlApi, formData).then((res) => {
+      console.log(res);
+      refreshMovie(movie_id);
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetchReviewAdd();
   };
 
   const handleControl = (e) => {
@@ -37,6 +48,7 @@ export default function reviewForm() {
               type="text"
               className="form-control"
               id="nameImput"
+              required
             />
           </div>
         </div>
@@ -55,6 +67,7 @@ export default function reviewForm() {
               min={1}
               max={10}
               step={1}
+              required
             />
           </div>
         </div>
@@ -70,6 +83,7 @@ export default function reviewForm() {
               className="form-control"
               id="textIput"
               rows="3"
+              required
             />
           </div>
         </div>
@@ -83,9 +97,10 @@ export default function reviewForm() {
           className="form-check-input"
           id="policy"
           name="policy"
+          required
         />
         <label className="form-check-label" htmlFor="policy">
-          accept <a href="#">terms & conditions</a> first
+          Accept <a href="#">terms & conditions</a>
         </label>
       </div>
       <button type="submit" className="btn btn-primary">
