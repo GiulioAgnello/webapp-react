@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const dataDefault = { name: "", vote: 0, text: "", cheched: false };
+const dataDefault = { name: "", vote: 0, text: "", policy: false };
 
 export default function reviewForm() {
   const [formData, setFormData] = useState(dataDefault);
@@ -10,10 +10,17 @@ export default function reviewForm() {
   };
 
   const handleControl = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.type === "checkbox") {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -63,23 +70,26 @@ export default function reviewForm() {
               className="form-control"
               id="textIput"
               rows="3"
-            ></textarea>
+            />
           </div>
         </div>
       </div>
 
       <div className="mb-3 form-check">
         <input
+          checked={formData.policy}
+          onChange={handleControl}
           type="checkbox"
           className="form-check-input"
-          id="exampleCheck1"
+          id="policy"
+          name="policy"
         />
-        <label className="form-check-label" htmlFor="exampleCheck1">
-          accept <a to="#">terms & conditions</a> first
+        <label className="form-check-label" htmlFor="policy">
+          accept <a href="#">terms & conditions</a> first
         </label>
       </div>
       <button type="submit" className="btn btn-primary">
-        Submit
+        Add
       </button>
     </form>
   );
