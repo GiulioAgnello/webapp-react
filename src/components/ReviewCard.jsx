@@ -10,7 +10,7 @@ export default function ReviewCard({ review }) {
       <p className="flex-grow-1">{text}</p>
       <p>
         {Array.from({ length: Math.ceil(vote / 2) }).map((_, i) => (
-          <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
+          <FontAwesomeIcon key={i} icon={faStar} style={{ color: "#FFD43B" }} />
         ))}
       </p>
     </div>

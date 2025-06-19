@@ -1,7 +1,8 @@
 import { useParams } from "react-router";
-import ReviewList from "../components/ReviewList";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ReviewList from "../components/ReviewList";
+import ReviewForm from "../components/ReviewForm";
 
 // url
 const urlApi = import.meta.env.VITE_API_URL;
@@ -53,9 +54,13 @@ export default function MovieDetail() {
       <ReviewList />
 
       <section>
-        <div className="container my-4">
-          <h2>la tua recenzione</h2>
-          <p>form per la recensione</p>
+        <div className="container my-5 d-flex justify-content-center">
+          <div className="row">
+            <div className="col">
+              <h2>Add a Revirew..</h2>
+              <ReviewForm />
+            </div>
+          </div>
         </div>
       </section>
     </>
