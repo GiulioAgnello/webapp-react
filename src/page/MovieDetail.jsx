@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ReviewList from "../components/ReviewList";
 import ReviewForm from "../components/ReviewForm";
+import { useLoader } from "../context/LoaderContext";
 
 // url
 const urlApi = import.meta.env.VITE_API_URL;
@@ -11,11 +12,14 @@ const imagePath = import.meta.env.VITE_PATH_IMG;
 export default function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
+  const { setIsLoading } = useLoader();
 
   function fetchmovie() {
+    setIsLoading(true);
     axios.get(urlApi + id).then((res) => {
       setMovie(res.data);
       console.log(res.data);
+      setIsLoading(false);
     });
   }
 
