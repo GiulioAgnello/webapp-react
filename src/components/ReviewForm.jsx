@@ -104,9 +104,11 @@ export default function reviewForm({ movie_id, refreshMovie }) {
           Accept <a href="#">terms & conditions</a>
         </label>
       </div>
-      <button type="submit" className="btn btn-primary">
-        Add
-      </button>
+      <div className="text-center ">
+        <button type="submit" className="btn btn-primary text-center fs-6 px-5">
+          Add
+        </button>
+      </div>
     </form>
   );
 }

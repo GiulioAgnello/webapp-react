@@ -32,7 +32,7 @@ export default function MovieDetail() {
         <>
           <section>
             <div className="container  my-4">
-              <div className="row align-items-end">
+              <div className="row align-items-center">
                 <div className="col-sm-12 col-xl-3  ">
                   <img
                     src={`${imagePath}${image}`}
