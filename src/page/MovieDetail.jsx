@@ -10,21 +10,21 @@ const urlApi = import.meta.env.VITE_API_URL;
 const imagePath = import.meta.env.VITE_PATH_IMG;
 
 export default function MovieDetail() {
+  // settaggio e fetch della api
   const { id } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState({});
   const { setIsLoading } = useLoader();
 
   function fetchmovie() {
     setIsLoading(true);
     axios.get(urlApi + id).then((res) => {
       setMovie(res.data);
-      console.log(res.data);
       setIsLoading(false);
     });
   }
 
   useEffect(fetchmovie, []);
-  const { image, title, director, genre, abstract } = movie;
+  const { image, title, director, genre, abstract, reviews } = movie;
 
   return (
     <>
@@ -32,15 +32,15 @@ export default function MovieDetail() {
         <>
           <section>
             <div className="container  my-4">
-              <div className="row">
-                <div className="col-3">
+              <div className="row align-items-end">
+                <div className="col-sm-12 col-xl-3  ">
                   <img
                     src={`${imagePath}${image}`}
-                    className="Showimage"
+                    className="img-fluid img-thumbnail"
                     alt={movie.title}
                   />
                 </div>
-                <div className="col-9 ">
+                <div className="col-sm-12 col-xl-9 ">
                   <div className="description">
                     <h1 className="titleShow text-uppercase text-center">
                       {title}
@@ -56,9 +56,7 @@ export default function MovieDetail() {
               </div>
             </div>
           </section>
-
-          <ReviewList />
-
+          <ReviewList reviews={reviews} />
           <section>
             <div className="container my-5 d-flex justify-content-center">
               <div className="row">

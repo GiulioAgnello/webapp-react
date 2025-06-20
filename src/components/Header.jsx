@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router";
 export default function Header() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-dark-subtle">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/movies/">
             CINEBLOG BOOLEAN

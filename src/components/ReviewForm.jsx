@@ -10,13 +10,14 @@ export default function reviewForm({ movie_id, refreshMovie }) {
 
   const fetchReviewAdd = () => {
     axios.post(urlApi, formData).then((res) => {
-      console.log(res);
+      refreshMovie();
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchReviewAdd();
+    setFormData(dataDefault);
   };
 
   const handleControl = (e) => {
@@ -32,7 +33,7 @@ export default function reviewForm({ movie_id, refreshMovie }) {
       });
     }
   };
-  useEffect(fetchReviewAdd, []);
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">

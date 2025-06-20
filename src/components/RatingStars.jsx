@@ -10,9 +10,9 @@ export default function RatingStars({ vote, maxVote = 5 }) {
     for (let i = 0; i < maxVote; i++) {
       stars.push(
         i < vote ? (
-          <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
+          <FontAwesomeIcon key={i} icon={faStar} style={{ color: "#FFD43B" }} />
         ) : (
-          <FontAwesomeIcon icon={faStar} style={{ color: "#b0b0b0" }} />
+          <FontAwesomeIcon key={i} icon={faStar} style={{ color: "#b0b0b0" }} />
         )
       );
     }
