@@ -7,7 +7,6 @@ export default function reviewForm({ movie_id, refreshMovie }) {
   const urlApi = import.meta.env.VITE_API_URL + movie_id + "/reviews";
 
   const [formData, setFormData] = useState(dataDefault);
-  const refreSubmit = refreshMovie();
 
   const fetchReviewAdd = () => {
     axios.post(urlApi, formData).then((res) => {
@@ -18,7 +17,6 @@ export default function reviewForm({ movie_id, refreshMovie }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchReviewAdd();
-    refreSubmit();
   };
 
   const handleControl = (e) => {
@@ -34,6 +32,7 @@ export default function reviewForm({ movie_id, refreshMovie }) {
       });
     }
   };
+  useEffect(fetchReviewAdd, []);
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">
