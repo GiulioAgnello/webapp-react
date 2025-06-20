@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
-export default function Loader({ setShow }) {
-  if (!setShow) return <></>;
+export default function Loader({ show }) {
+  if (!show) return <></>;
 
   return (
     <div className="loader">
