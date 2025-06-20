@@ -24,45 +24,51 @@ export default function MovieDetail() {
 
   return (
     <>
-      <section>
-        <div className="container  my-4">
-          <div className="row">
-            <div className="col-3">
-              <img
-                src={`${imagePath}${image}`}
-                className="Showimage"
-                alt={movie.title}
-              />
-            </div>
-            <div className="col-9 ">
-              <div className="description">
-                <h1 className="titleShow text-uppercase text-center">
-                  {title}
-                </h1>
-                <small>{genre}</small>
-                <br />
-                <small>{director}</small>
-                <br />
-                <br />
-                <p>{abstract}</p>
+      {movie ? (
+        <>
+          <section>
+            <div className="container  my-4">
+              <div className="row">
+                <div className="col-3">
+                  <img
+                    src={`${imagePath}${image}`}
+                    className="Showimage"
+                    alt={movie.title}
+                  />
+                </div>
+                <div className="col-9 ">
+                  <div className="description">
+                    <h1 className="titleShow text-uppercase text-center">
+                      {title}
+                    </h1>
+                    <small>Genre: {genre}</small>
+                    <br />
+                    <small>Director: {director}</small>
+                    <br />
+                    <br />
+                    <p>Story: {abstract}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <ReviewList />
+          <ReviewList />
 
-      <section>
-        <div className="container my-5 d-flex justify-content-center">
-          <div className="row">
-            <div className="col">
-              <h2>Add a Revirew..</h2>
-              <ReviewForm movie_id={id} refreshMovie={fetchmovie} />
+          <section>
+            <div className="container my-5 d-flex justify-content-center">
+              <div className="row">
+                <div className="col">
+                  <h2>Add a Revirew..</h2>
+                  <ReviewForm movie_id={id} refreshMovie={fetchmovie} />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </>
+      ) : (
+        <h1 className="container my-5">Loading.....</h1>
+      )}
     </>
   );
 }

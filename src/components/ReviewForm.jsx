@@ -7,17 +7,18 @@ export default function reviewForm({ movie_id, refreshMovie }) {
   const urlApi = import.meta.env.VITE_API_URL + movie_id + "/reviews";
 
   const [formData, setFormData] = useState(dataDefault);
+  const refreSubmit = refreshMovie();
 
   const fetchReviewAdd = () => {
     axios.post(urlApi, formData).then((res) => {
       console.log(res);
-      refreshMovie(movie_id);
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchReviewAdd();
+    refreSubmit();
   };
 
   const handleControl = (e) => {
